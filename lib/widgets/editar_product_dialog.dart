@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:catalogo3d/widgets/animated_button.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -121,7 +122,6 @@ class _EditarProductoDialogState extends State<EditarProductoDialog> {
                 controller: _descripcionController,
                 decoration: const InputDecoration(labelText: 'Descripción'),
                 style: const TextStyle(color: Colors.white),
-                maxLines: 3,
               ),
               const SizedBox(height: 12),
               TextField(
@@ -148,10 +148,7 @@ class _EditarProductoDialogState extends State<EditarProductoDialog> {
               else
                 Image.network(widget.producto['imagen_url'], height: 100, errorBuilder: (_, __, ___) => const Icon(Icons.broken_image)),
               const SizedBox(height: 24),
-              FilledButton(
-                onPressed: _guardarCambios,
-                child: const Text('Guardar cambios'),
-              )
+              HoverAnimatedButton(onPressed: _guardarCambios, text: 'Guardar cambios'),
             ],
           ),
         ),

@@ -174,44 +174,37 @@ class _RemoverProductoScreenState extends State<RemoverProductoScreen> {
                               onTap: () {
                                 showDialog(
                                   context: context,
-                                  builder:
-                                      (_) => AlertDialog(
-                                        title: const Text(
-                                          '¿Eliminar producto?',
-                                        ),
-                                        content: Text(
-                                          '¿Estás seguro de que querés eliminar "${producto['titulo']}"?',
-                                        ),
-                                        actions: [
-                                          TextButton(
-                                            onPressed:
-                                                () => Navigator.pop(context),
-                                            child: const Text('Cancelar'),
-                                          ),
-                                          FilledButton(
-                                            onPressed: () async {
-                                              Navigator.pop(context);
-                                              await _eliminarProducto(
-                                                producto['id'],
-                                              );
-                                              ScaffoldMessenger.of(
-                                                context,
-                                              ).showSnackBar(
-                                                const SnackBar(
-                                                  content: Text(
-                                                    '✅ Producto eliminado correctamente',
-                                                  ),
-                                                  backgroundColor: Colors.green,
-                                                ),
-                                              );
-                                            },
-                                            child: const Text(
-                                              'Eliminar',
-                                             
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                  builder: (_) => AlertDialog(
+  backgroundColor: const Color.fromARGB(255, 29, 36, 39),
+  title: const Text(
+    '¿Eliminar producto?',
+    style: TextStyle(color: Colors.white),
+  ),
+  content: Text(
+    '¿Estás seguro de que querés eliminar "${producto['titulo']}"?',
+    style: const TextStyle(color: Colors.white70),
+  ),
+  actions: [
+    TextButton(
+      onPressed: () => Navigator.pop(context),
+      child: const Text('Cancelar', style: TextStyle(color: Colors.white70)),
+    ),
+    FilledButton(
+      onPressed: () async {
+        Navigator.pop(context);
+        await _eliminarProducto(producto['id']);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('✅ Producto eliminado correctamente'),
+            backgroundColor: Colors.green,
+          ),
+        );
+      },
+      child: const Text('Eliminar'),
+    ),
+  ],
+),
+
                                 );
                               },
                               child: Card(
