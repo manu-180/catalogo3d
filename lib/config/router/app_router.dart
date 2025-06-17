@@ -1,3 +1,4 @@
+import 'package:catalogo3d/screens/actualizar_productos_screen.dart';
 import 'package:catalogo3d/screens/agregar_productos_screen.dart';
 import 'package:catalogo3d/screens/remover_productos_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -12,6 +13,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: "/remover",
       builder: (context, state) => const RemoverProductoScreen(),
+    ),
+    GoRoute(
+      path: "/actualizar",
+      builder: (context, state) => const ActualizarProductoScreen(),
     ),
   ],
 );
