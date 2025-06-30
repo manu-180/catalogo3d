@@ -97,6 +97,8 @@ class _AgregarProductoScreenState extends State<AgregarProductoScreen> {
         'descripcion': _descripcionController.text.trim(),
         'imagen_url': publicUrl,
         'categoria': _categoriaController.text.trim(),
+        'familia': _familiaController.text.trim(),
+
       });
 
       // Limpiar formulario
@@ -107,7 +109,7 @@ class _AgregarProductoScreenState extends State<AgregarProductoScreen> {
         _tituloController.clear();
         _precioController.clear();
         _descripcionController.clear();
-        _categoriaController.clear();
+        
       });
 
       if (mounted) {
